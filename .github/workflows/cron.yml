@@ -3,6 +3,7 @@ name: Keep the upstream data sync'ed
 on:
   schedule:
     - cron: "33 3 * * *"
+  workflow_dispatch:
 
 jobs:
   release:
