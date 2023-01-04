@@ -16,6 +16,23 @@
   :alt: Build status
   :target: https://github.com/Julian/github-reserved-names/actions?query=workflow%3ACI
 
-A Python port of https://npm.im/github-reserved-names, i.e. a list of paths that GitHub uses which aren't real users.
+Usage
+-----
 
-Essentially pulls in the data unchanged (so the license and contents are essentially those of the original author(s)).
+A single ``set`` is exposed, containing the reserved names:
+
+.. code:: python
+
+    >>> import github_reserved_names
+    >>> "sponsors" in github_reserved_names.ALL
+    True
+
+
+Source
+------
+
+The source of this data is the `npm github-reserved-names project <https://npm.im/github-reserved-names>`_
+
+This module attempts to provide a mirror of that project as a Python module.
+
+If you feel a path is missing, please file a pull request upstream and it will be pulled in here.
