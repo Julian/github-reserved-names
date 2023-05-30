@@ -5,6 +5,7 @@ import nox
 ROOT = Path(__file__).parent
 PYPROJECT = ROOT / "pyproject.toml"
 FILE = ROOT / "github_reserved_names.py"
+TESTS = ROOT / "test_github_reserved_names.py"
 
 
 nox.options.sessions = []
@@ -22,7 +23,13 @@ def session(default=True, **kwargs):
 @session(python=["3.8", "3.9", "3.10", "3.11", "pypy3"])
 def tests(session):
     session.install("pytest", ROOT)
-    session.run("pytest")
+    session.run("pytest", TESTS)
+
+
+@session()
+def audit(session):
+    session.install("pip-audit", ROOT)
+    session.run("python", "-m", "pip_audit")
 
 
 @session(tags=["build"])
@@ -37,24 +44,16 @@ def readme(session):
     session.install("build", "twine")
     tmpdir = session.create_tmp()
     session.run("python", "-m", "build", ROOT, "--outdir", tmpdir)
-    session.run("python", "-m", "twine", "check", tmpdir + "/*")
+    session.run("python", "-m", "twine", "check", "--strict", tmpdir + "/*")
 
 
 @session(tags=["style"])
 def style(session):
-    session.install(
-        "flake8",
-        "flake8-broken-line",
-        "flake8-bugbear",
-        "flake8-commas",
-        "flake8-quotes",
-        "flake8-tidy-imports",
-    )
-    session.run("python", "-m", "flake8", FILE, __file__)
+    session.install("ruff")
+    session.run("ruff", "check", FILE, TESTS, __file__)
 
 
 @session()
 def typing(session):
-    # FIXME: Don't repeat dependencies.
-    session.install("attrs", "mypy", "pyrsistent", ROOT)
-    session.run("mypy", "--config-file", PYPROJECT, FILE)
+    session.install("pyright", ROOT)
+    session.run("pyright", FILE)
