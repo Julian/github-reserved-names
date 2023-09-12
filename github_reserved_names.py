@@ -93,6 +93,7 @@ ALL = {
     "customer-stories",
     "customer",
     "customers",
+    "dashboard-feed",
     "dashboard",
     "dashboards",
     "design",
