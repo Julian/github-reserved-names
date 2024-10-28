@@ -1,3 +1,10 @@
+"""
+A collection of reserved names used by GitHub which are not real users.
+
+The source of this data is the npm github-reserved-names project which lives
+at https://npm.im/github-reserved-names.
+"""
+
 ALL: set[str] = {
     "300",
     "302",
