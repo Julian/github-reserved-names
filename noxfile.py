@@ -5,6 +5,7 @@ import nox
 
 ROOT = Path(__file__).parent
 PYPROJECT = ROOT / "pyproject.toml"
+BIN = ROOT / "bin"
 FILE = ROOT / "github_reserved_names.py"
 TESTS = ROOT / "test_github_reserved_names.py"
 
@@ -60,7 +61,7 @@ def style(session):
     Check Python code style.
     """
     session.install("ruff")
-    session.run("ruff", "check", FILE, TESTS, __file__)
+    session.run("ruff", "check", BIN, FILE, TESTS, __file__)
 
 
 @session()
