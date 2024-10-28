@@ -25,7 +25,7 @@ def parse_list(set_name, filename):
     )
 
 
-DOCSTRING = f'''
+DOCSTRING = f'''\
 """
 A collection of reserved names used by GitHub which are not real users.
 
