@@ -9,6 +9,7 @@ FILE = ROOT / "github_reserved_names.py"
 TESTS = ROOT / "test_github_reserved_names.py"
 
 
+nox.options.default_venv_backend = "uv|virtualenv"
 nox.options.sessions = []
 
 
