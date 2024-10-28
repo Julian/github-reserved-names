@@ -33,9 +33,3 @@ dynamic = ["version"]
 Homepage = "https://github.com/Julian/github-reserved-names"
 Issues = "https://github.com/Julian/github-reserved-names/issues/"
 Source = "https://github.com/Julian/github-reserved-names"
-
-[tool.isort]
-combine_as_imports = true
-from_first = true
-include_trailing_comma = true
-multi_line_output = 3
