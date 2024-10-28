@@ -33,3 +33,7 @@ dynamic = ["version"]
 Homepage = "https://github.com/Julian/github-reserved-names"
 Issues = "https://github.com/Julian/github-reserved-names/issues/"
 Source = "https://github.com/Julian/github-reserved-names"
+
+[tool.pyright]
+reportUnnecessaryTypeIgnoreComment = true
+strict = ["**/*"]
