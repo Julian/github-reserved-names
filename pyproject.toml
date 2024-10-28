@@ -11,8 +11,7 @@ description = "A list of paths that GitHub uses which aren't real users"
 readme = "README.rst"
 keywords = ["github api", "github"]
 authors = [
-  {email = "Julian+github_reserved_names@GrayVines.com"},
-  {name = "Julian Berman"},
+  { name = "Julian Berman", email = "Julian+gh-reserved-names@GrayVines.com" },
 ]
 classifiers = [
   "Development Status :: 5 - Production/Stable",
