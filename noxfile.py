@@ -9,20 +9,23 @@ FILE = ROOT / "github_reserved_names.py"
 TESTS = ROOT / "test_github_reserved_names.py"
 
 
+SUPPORTED = ["3.9", "3.10", "pypy3.10", "3.11", "3.12", "3.13"]
+LATEST = SUPPORTED[-1]
+
 nox.options.default_venv_backend = "uv|virtualenv"
 nox.options.sessions = []
 
 
-def session(default=True, **kwargs):  # noqa: D103
+def session(default=True, python=LATEST, **kwargs):  # noqa: D103
     def _session(fn):
         if default:
             nox.options.sessions.append(kwargs.get("name", fn.__name__))
-        return nox.session(**kwargs)(fn)
+        return nox.session(python=python, **kwargs)(fn)
 
     return _session
 
 
-@session(python=["3.8", "3.9", "3.10", "3.11", "pypy3"])
+@session(python=SUPPORTED)
 def tests(session):
     """
     Run the test suite with a corresponding Python version.

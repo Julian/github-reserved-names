@@ -47,7 +47,14 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.x"
+          python-version: |
+            3.9
+            3.10
+            3.11
+            3.12
+            3.13
+            pypy3.10
+          allow-prereleases: true
 
       - name: Set up uv
         uses: hynek/setup-cached-uv@v2
