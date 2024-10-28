@@ -9,7 +9,6 @@ source = "vcs"
 name = "github_reserved_names"
 description = "A list of paths that GitHub uses which aren't real users"
 readme = "README.rst"
-license = {text = "MIT"}
 keywords = ["github api", "github"]
 authors = [
   {email = "Julian+github_reserved_names@GrayVines.com"},
