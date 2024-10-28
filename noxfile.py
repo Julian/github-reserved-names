@@ -6,8 +6,7 @@ import nox
 ROOT = Path(__file__).parent
 PYPROJECT = ROOT / "pyproject.toml"
 BIN = ROOT / "bin"
-FILE = ROOT / "github_reserved_names.py"
-TESTS = ROOT / "test_github_reserved_names.py"
+PACKAGE = ROOT / "github_reserved_names"
 
 
 SUPPORTED = ["3.9", "3.10", "pypy3.10", "3.11", "3.12", "3.13"]
@@ -32,7 +31,7 @@ def tests(session):
     Run the test suite with a corresponding Python version.
     """
     session.install("pytest", ROOT)
-    session.run("pytest", TESTS)
+    session.run("pytest", PACKAGE)
 
 
 @session()
@@ -61,7 +60,7 @@ def style(session):
     Check Python code style.
     """
     session.install("ruff")
-    session.run("ruff", "check", BIN, FILE, TESTS, __file__)
+    session.run("ruff", "check", BIN, PACKAGE, __file__)
 
 
 @session()
@@ -70,4 +69,4 @@ def typing(session):
     Check static typing.
     """
     session.install("pyright", ROOT)
-    session.run("pyright", *session.posargs, FILE)
+    session.run("pyright", *session.posargs, PACKAGE)
