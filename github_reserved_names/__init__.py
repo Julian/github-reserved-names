@@ -278,6 +278,7 @@ ALL: set[str] = {
     "trending",
     "undefined",
     "updates",
+    "user-attachments",
     "username",
     "users",
     "visualization",
