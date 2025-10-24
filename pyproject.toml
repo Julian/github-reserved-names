@@ -8,7 +8,7 @@ source = "vcs"
 [project]
 name = "github_reserved_names"
 description = "A list of paths that GitHub uses which aren't real users"
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 readme = "README.rst"
 keywords = ["github api", "github"]
 authors = [
@@ -20,12 +20,11 @@ classifiers = [
   "License :: OSI Approved :: MIT License",
   "Operating System :: OS Independent",
   "Programming Language :: Python",
-  "Programming Language :: Python :: 3.9",
   "Programming Language :: Python :: 3.10",
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
   "Programming Language :: Python :: 3.13",
-  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.14",
   "Programming Language :: Python :: Implementation :: CPython",
   "Programming Language :: Python :: Implementation :: PyPy",
   "Typing :: Typed",
@@ -87,7 +86,6 @@ ignore = [
   "SIM300", # Not sure what heuristic this uses, but it's easily incorrect
   "SLF001",  # Private usage within this package itself is fine
   "TD",  # These TODO style rules are also silly
-  "UP007",  # We support 3.8 + 3.9
 ]
 
 [tool.ruff.lint.flake8-pytest-style]
