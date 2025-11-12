@@ -129,6 +129,7 @@ ALL: set[str] = {
     "ghost",
     "gist",
     "gists",
+    "github-copilot",
     "graphs",
     "groups",
     "guide",
