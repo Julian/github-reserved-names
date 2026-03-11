@@ -87,6 +87,7 @@ ALL: set[str] = {
     "cla",
     "cloud",
     "codereview",
+    "codespaces",
     "collection",
     "collections",
     "comments",
