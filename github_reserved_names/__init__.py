@@ -119,6 +119,7 @@ ALL: set[str] = {
     "edu",
     "education",
     "enterprise",
+    "enterprises",
     "events",
     "explore",
     "featured",
