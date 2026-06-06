@@ -5,14 +5,26 @@ on:
     - cron: "33 3 * * *"
   workflow_dispatch:
 
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
+
+permissions: {}
+
 jobs:
   sync:
+    name: Sync upstream source data
     runs-on: ubuntu-latest
+    permissions:
+      contents: write # to push the update-source-data branch
+      pull-requests: write # to open the sync PR
     steps:
       - name: Checkout source
-        uses: actions/checkout@v6
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+        with:
+          persist-credentials: false
       - name: Install Python
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6
         with:
           python-version: "3.x"
       - name: Check for differences
